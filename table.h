@@ -6,6 +6,7 @@ public:
 	table(int row, int col);
 	~table();
 	table& operator=(const table& t);
+	table(const table& t);
 	T* operator[](int row);
 	T* operator[](int row) const;
 	int Size() const;
@@ -67,4 +68,15 @@ table<T>& table<T>::operator=(const table& rt) {
 template <class T>
 int table<T>::Size() const {
 	return row_ * col_;
+}
+
+template <class T>
+table<T>::table(const table& t)
+	:table<T> (t.row_, t.col_)
+{
+	for (int i = 0; i < row_; ++i) {
+		for (int j = 0; j < col_; ++j) {
+			data_[i][j] = t.data_[i][j];
+		}
+	}
 }

@@ -11,5 +11,8 @@ int main()
     test[0][0] = 4;
     test2 = test;
     std::cout << "Size table2 after '=': " << test2.Size() << std::endl;
-    std::cout << "table2[0][0]: " << test2[0][0];
+    std::cout << "table2[0][0]: " << test2[0][0] << std::endl;
+    table<int> test3(test);
+    std::cout << "Size table3 '=': " << test3.Size() << std::endl;
+    std::cout << "table3[0][0]: " << test3[0][0] << std::endl;
 }
